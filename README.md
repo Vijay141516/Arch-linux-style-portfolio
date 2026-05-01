@@ -1,62 +1,80 @@
-# 🐧 Arch-Linux Style Portfolio
+🐧 Arch-Linux Style Portfolio
+<p align="center"> <img src="https://img.shields.io/badge/Arch-Linux-blue?style=for-the-badge&logo=arch-linux"> <img src="https://img.shields.io/badge/Hyprland-Rice-purple?style=for-the-badge"> <img src="https://img.shields.io/badge/Vanilla-JS-yellow?style=for-the-badge&logo=javascript"> <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"> </p> <p align="center"> 💻 A **fully interactive Linux-inspired portfolio** with tiling windows, terminal, and anime aesthetics. </p>
+🌌 Preview
+🔐 Login Screen
+7
 
-A stunning, interactive web portfolio inspired by the **Arch Linux Hyprland** aesthetic. This project features a tiling window manager experience, a functional terminal emulator, and a sleek retro-modern UI.
+Minimal lockscreen inspired by Hyprland + Arch setups
+Smooth blur + glass UI + password hint system
 
----
+✨ Features
+🪟 Desktop Experience
+Real tiling window manager feel
+Draggable + focus-based windows
+Smooth animations & transitions
+📟 Terminal Emulator
+Command-based interaction
+Fake Linux environment feel
+Expandable command system
+🎵 Music Player
+Built-in aesthetic player
+Works in background
+Enhances immersion
+⚙️ Quick Settings Panel
+Toggle blur / transparency
+Theme switching
+UI tweaks
+📱 Mobile Optimization
+Custom mobile navbar
+Touch-friendly UI
+Lag-free performance
+🧠 Why This Project is Cool
+Feels like a real OS inside browser
+Inspired by actual Arch Linux ricing
+No heavy frameworks — pure optimized code
+Clean + aesthetic + functional
+🛠️ Tech Stack
+HTML5        → Structure
+CSS3         → Animations + Glass UI + Layout
+JavaScript   → Logic + Window Manager + Terminal
+🚀 Getting Started
+📥 Clone Repo
+git clone https://github.com/Vijay141516/Arch-linux-style-portfolio.git
+cd Arch-linux-style-portfolio
+▶️ Run
+open index.html
+📸 More Screenshots (Add These)
 
-## ✨ Features
+👉 You should add:
 
-- **🪟 Tiling Window Manager**: Experience a desktop-like environment directly in your browser.
-- **📟 Terminal Emulator**: Interactive terminal for a true Linux-feel.
-- **🎵 Integrated Music Player**: Listen to tunes while browsing the portfolio.
-- **📱 Responsive Design**: Optimized for both desktop and mobile views with a custom mobile navigation bar.
-- **⚙️ Quick Settings**: Toggle system-wide settings like transparency and themes.
-- **🎨 Custom Aesthetics**: Built with high-fidelity CSS for that premium "rice" look.
+Desktop UI (main screen)
+Terminal open
+Music player
+Mobile layout
 
----
+(If you send them, I’ll upgrade README again with pro layout)
 
-## 🛠️ Tech Stack
+🤝 Contributing
 
-- **HTML5**: Semantic structure.
-- **Vanilla CSS**: Advanced layout techniques and animations.
-- **JavaScript**: Core logic for window management, terminal functionality, and app interactions.
+Want to improve it?
 
----
+Fork repo
+Create branch
+Make changes
+Submit PR 🚀
+📄 License
 
-## 🚀 Getting Started
+MIT License — free to use & modify
 
-### Prerequisites
-- A modern web browser.
+👨‍💻 Author
 
-### Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Vijay141516/Arch-linux-style-portfolio.git
-   ```
-2. Navigate to the project folder:
-   ```bash
-   cd Arch-linux-style-portfolio
-   ```
-3. Open `index.html` in your browser.
+Vijay
+🔗 https://github.com/Vijay141516
 
----
+⭐ Final Touch
 
-## 📸 Screenshots
+If you like this project:
 
-*(Add your screenshots here to show off your ricing skills!)*
-
----
-
-## 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/Vijay141516/Arch-linux-style-portfolio/issues).
-
----
-
-## 📄 License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
----
-
-**Made with ❤️ by [Vijay](https://github.com/Vijay141516)**
+👉 Drop a ⭐ on GitHub
+👉 Share with dev friends
+👉 Use it as your portfolio base
