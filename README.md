@@ -50,15 +50,10 @@ open index.html
 
 ## 📸 Screenshots  
 
-### 🔐 Login Screen  
-
-![Login Screen](./screenshots/login.png)
-
-👉 You should add:  
-- Desktop UI (main screen)  
-- Terminal open  
-- Music player  
-- Mobile layout  
+![Login](./screenshots/login.png)
+![UI](./screenshots/ui.png)
+![Theme](./screenshots/theme.png)
+![About](./screenshots/about.png)
 
 ---
 
