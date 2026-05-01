@@ -13,7 +13,7 @@
 - 📟 **Terminal Emulator** — Interactive Linux-style terminal  
 - 🎵 **Music Player** — Built-in background player  
 - ⚙️ **Settings Panel** — Blur, transparency, theme toggle  
-- 📱 **Mobile Optimization** — Custom navbar + responsive UI  
+- 📱 **Mobile Optimization** — Currently not optimized for mobile working on it might take another week  
 - 🎨 **Aesthetic UI** — Arch Linux + Hyprland inspired design  
 
 ---
