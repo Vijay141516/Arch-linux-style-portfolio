@@ -1,9 +1,4 @@
-# 🐧 Arch-Linux Style Portfolio  
-
-A stunning, interactive web portfolio inspired by the **Arch Linux Hyprland** aesthetic.  
-It recreates a **desktop-like Linux environment inside your browser** with smooth UI and powerful features.
-
----
+<p align="center"> <img src="https://img.shields.io/badge/Arch-Linux-blue?style=for-the-badge&logo=arch-linux"> <img src="https://img.shields.io/badge/Hyprland-Rice-purple?style=for-the-badge"> <img src="https://img.shields.io/badge/Vanilla-JS-yellow?style=for-the-badge&logo=javascript"> <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"> </p> <p align="center"> 💻 A **fully interactive Linux-inspired portfolio** with tiling windows, terminal, and anime aesthetics. </p>
 
 ## 🌐 Live Demo  
 
