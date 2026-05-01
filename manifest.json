@@ -1,0 +1,10 @@
+{
+  "name": "VIJAY — Arch Dev Portfolio",
+  "short_name": "VJ Portfolio",
+  "description": "Anime-themed developer portfolio inspired by Arch Linux and Hyprland",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFE4EF",
+  "theme_color": "#C2185B",
+  "icons": []
+}

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="sakura">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>VIJAY | Arch Linux Developer Portfolio</title>
+  <meta name="description"
+    content="Anime-themed developer portfolio inspired by Arch Linux and Hyprland. Interactive terminal, cybersecurity, and creative coding.">
+  <meta name="theme-color" content="#FFE4EF">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- ═══════════ BOOT SCREEN ═══════════ -->
+  <div id="boot-screen">
+    <div id="boot-log"></div>
+    <div id="boot-skip">tap anywhere or press any key to skip</div>
+  </div>
+
+  <!-- ═══════════ LOGIN SCREEN ═══════════ -->
+  <div id="login-screen" class="hidden">
+    <div id="login-petals"></div>
+    <div id="login-box">
+      <div id="login-avatar-ring">
+        <img src="avatar.jpg" alt="Avatar" id="login-avatar" loading="lazy">
+      </div>
+      <h2 id="login-username">VIJAY</h2>
+      <p id="login-subtitle">archlinux portfolio • hyprland</p>
+      <form id="login-form" autocomplete="off">
+        <div id="password-wrapper">
+          <svg id="lock-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor"
+            stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+          </svg>
+          <input type="password" id="password-input" placeholder="Password" autofocus>
+        </div>
+        <button type="submit" id="login-btn">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg>
+        </button>
+      </form>
+      <p id="login-error" class="hidden">✕ incorrect password</p>
+      <p id="login-hint">hint: 123</p>
+    </div>
+  </div>
+
+  <!-- ═══════════ DESKTOP ═══════════ -->
+  <div id="desktop" class="hidden">
+
+    <!-- Sakura Petals -->
+    <div id="petals-container" aria-hidden="true"></div>
+
+    <!-- Taskbar (Moved to Top) -->
+    <footer id="taskbar">
+      <div id="taskbar-left">
+        <div class="taskbar-pill">
+          <button id="taskbar-arch-btn" title="Start / App Launcher">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+              <path
+                d="M12 2C9.6 7.2 8.3 10 7.2 12.5c1.2-.8 2.6-1.3 4.8-1.3s3.6.5 4.8 1.3C15.7 10 14.4 7.2 12 2zm0 13.2c-2.2 0-3.8.6-5.2 1.6-.6 1.4-1.3 3-2.8 5.2 2.4-1.4 4.4-2 8-2s5.6.6 8 2c-1.5-2.2-2.2-3.8-2.8-5.2-1.4-1-3-1.6-5.2-1.6z" />
+            </svg>
+          </button>
+          <div class="pill-divider"></div>
+          <div id="taskbar-workspaces">
+            <span class="ws-num">1</span>
+            <span class="ws-num">2</span>
+            <span class="ws-num active">3</span>
+            <span class="ws-num">5</span>
+            <span class="ws-num">6</span>
+          </div>
+        </div>
+        <div class="taskbar-pill" id="tb-music">
+          <span class="tray-icon">🎵</span>
+          <div class="pill-divider"></div>
+          <span id="taskbar-music-text">Yorushika</span>
+        </div>
+      </div>
+
+      <div id="taskbar-center">
+        <div id="taskbar-apps"></div>
+      </div>
+
+      <div id="taskbar-right">
+        <div class="taskbar-pill">
+          <span>CPU:10%</span>
+          <div class="pill-divider"></div>
+          <span>RAM:55%</span>
+        </div>
+        <div class="taskbar-pill">
+          <div id="clock">05:46</div>
+          <div class="pill-divider"></div>
+          <span class="tray-icon" title="Network">📶</span>
+          <span class="tray-icon" title="Volume">🔊</span>
+          <span class="tray-icon" title="Battery">🔋69%</span>
+        </div>
+      </div>
+    </footer>
+
+    <section id="desktop-widget" aria-label="Desktop time widget">
+      <div id="desktop-time">05:46 PM</div>
+      <div id="desktop-date">Friday, May 1</div>
+      <div id="desktop-orbit">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </section>
+
+    <!-- Main Content Area (Tiled Layout) -->
+    <main id="main-content">
+
+      <!-- Column 1: Projects (Large) -->
+      <div class="grid-col">
+        <section id="projects-window" class="window tile">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red" data-action="close"></span>
+              <span class="dot dot-yellow" data-action="minimize"></span>
+              <span class="dot dot-green" data-action="maximize"></span>
+            </div>
+            <span class="window-title">📁 Projects</span>
+          </div>
+          <div class="window-body" id="projects-body"></div>
+          <div class="window-resizer"></div>
+        </section>
+      </div>
+
+      <!-- Column 2: Terminal & About -->
+      <div class="grid-col">
+        <!-- Terminal Window -->
+        <section id="terminal-window" class="window tile">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red" data-action="close"></span>
+              <span class="dot dot-yellow" data-action="minimize"></span>
+              <span class="dot dot-green" data-action="maximize"></span>
+            </div>
+            <span class="window-title">🖥️ Terminal</span>
+          </div>
+          <div id="terminal-body" tabindex="0">
+            <div id="terminal-output"></div>
+            <div id="terminal-input-line">
+              <span class="prompt">[vijay@arch ~]$&nbsp;</span>
+              <div id="input-wrapper">
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false">
+                <span id="cursor-block" class="blink"></span>
+              </div>
+            </div>
+          </div>
+          <div class="window-resizer"></div>
+        </section>
+
+        <!-- About Window -->
+        <section id="about-window" class="window tile">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red" data-action="close"></span>
+              <span class="dot dot-yellow" data-action="minimize"></span>
+              <span class="dot dot-green" data-action="maximize"></span>
+            </div>
+            <span class="window-title">👤 About Me</span>
+          </div>
+          <div class="window-body" id="about-body"></div>
+          <div class="window-resizer"></div>
+        </section>
+      </div>
+
+      <!-- Column 3: Profile & Skills & Contact -->
+      <div class="grid-col">
+        <!-- Profile Card -->
+        <div id="profile-card" class="glass-card tile">
+          <div id="profile-header">
+            <img src="avatar.jpg" alt="VIJAY" id="profile-avatar" loading="lazy">
+            <div id="profile-info">
+              <h2>VIJAY <span class="badge">r/hyprland</span></h2>
+              <p class="subtitle">developer • gamer • weeb</p>
+            </div>
+          </div>
+          <div id="now-playing" class="glass-inset">
+            <div id="album-art">🎵</div>
+            <div id="song-info">
+              <span class="song-title">Dracula</span>
+              <span class="song-artist">tame impala</span>
+            </div>
+            <div id="player-controls">
+              <button class="player-btn" id="prev-btn">⏮</button>
+              <button class="player-btn" id="play-btn">▶</button>
+              <button class="player-btn" id="next-btn">⏭</button>
+            </div>
+          </div>
+          <div class="window-resizer"></div>
+        </div>
+
+        <!-- Skills Window -->
+        <section id="skills-window" class="window tile">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red" data-action="close"></span>
+              <span class="dot dot-yellow" data-action="minimize"></span>
+              <span class="dot dot-green" data-action="maximize"></span>
+            </div>
+            <span class="window-title">⚡ Skills</span>
+          </div>
+          <div class="window-body" id="skills-body"></div>
+          <div class="window-resizer"></div>
+        </section>
+
+        <!-- Contact Window -->
+        <section id="contact-window" class="window tile">
+          <div class="window-header">
+            <div class="window-dots">
+              <span class="dot dot-red" data-action="close"></span>
+              <span class="dot dot-yellow" data-action="minimize"></span>
+              <span class="dot dot-green" data-action="maximize"></span>
+            </div>
+            <span class="window-title">📧 Contact</span>
+          </div>
+          <div class="window-body" id="contact-body"></div>
+          <div class="window-resizer"></div>
+        </section>
+      </div>
+
+    </main>
+
+    <!-- App Launcher Overlay -->
+    <div id="app-launcher" class="hidden">
+      <div id="launcher-backdrop"></div>
+      <div id="launcher-panel">
+        <div id="launcher-search-wrapper">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+          <input type="text" id="launcher-search" placeholder="Search apps..." autocomplete="off">
+        </div>
+        <div id="launcher-apps">
+          <button class="launcher-app" data-app="terminal"><span class="app-icon"></span><span>Terminal</span></button>
+          <button class="launcher-app" data-app="projects"><span class="app-icon"></span><span>Projects</span></button>
+          <button class="launcher-app" data-app="skills"><span class="app-icon"></span><span>Skills</span></button>
+          <button class="launcher-app" data-app="contact"><span class="app-icon"></span><span>Contact</span></button>
+          <button class="launcher-app" data-app="neofetch"><span class="app-icon"></span><span>Neofetch</span></button>
+          <button class="launcher-app" data-app="about"><span class="app-icon"></span><span>About Me</span></button>
+          <button class="launcher-app" data-app="music"><span class="app-icon"></span><span>Music Player</span></button>
+          <button class="launcher-app" data-app="themes"><span class="app-icon"></span><span>Themes</span></button>
+          <button class="launcher-app" data-app="github"><span class="app-icon"></span><span>GitHub</span></button>
+        </div>
+        <div id="launcher-music-footer">
+          <div id="lm-info">
+            <span id="lm-title">Not Playing</span>
+            <span id="lm-artist">Select a song</span>
+          </div>
+          <div id="lm-controls">
+            <button id="menu-prev-btn" class="lm-btn">⏮</button>
+            <button id="menu-play-btn" class="lm-btn lm-btn-main">▶</button>
+            <button id="menu-next-btn" class="lm-btn">⏭</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Settings Window -->
+    <div id="settings-window" class="window floating-window hidden">
+      <div class="window-header">
+        <div class="window-dots"><span class="dot dot-red" data-action="close"></span><span class="dot dot-yellow"
+            data-action="minimize"></span><span class="dot dot-green" data-action="maximize"></span></div>
+        <span class="window-title">⚙️ Settings</span>
+        <div class="window-actions"><button class="win-btn close-float" data-target="settings-window">✕</button></div>
+      </div>
+      <div class="window-body" id="settings-body">
+        <div class="settings-section">
+          <h3>Theme</h3>
+          <div class="theme-grid">
+            <button class="theme-option active" data-theme="retro"><span
+                class="theme-preview retro-preview"></span><span>Retro Anime</span></button>
+            <button class="theme-option" data-theme="dark"><span
+                class="theme-preview dark-preview"></span><span>Dark</span></button>
+            <button class="theme-option" data-theme="hacker"><span
+                class="theme-preview hacker-preview"></span><span>Hacker</span></button>
+            <button class="theme-option" data-theme="neon"><span
+                class="theme-preview neon-preview"></span><span>Neon</span></button>
+            <button class="theme-option" data-theme="ocean"><span
+                class="theme-preview ocean-preview"></span><span>Ocean</span></button>
+            <button class="theme-option" data-theme="sunset"><span
+                class="theme-preview sunset-preview"></span><span>Sunset</span></button>
+          </div>
+        </div>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+    <!-- Music Player Window -->
+    <div id="music-window" class="window floating-window hidden">
+      <div class="window-header">
+        <div class="window-dots"><span class="dot dot-red" data-action="close"></span><span class="dot dot-yellow"
+            data-action="minimize"></span><span class="dot dot-green" data-action="maximize"></span></div>
+        <span class="window-title">🎵 Music Player</span>
+        <div class="window-actions"><button class="win-btn close-float" data-target="music-window">✕</button></div>
+      </div>
+      <div class="window-body" id="music-body">
+        <div id="music-search-box">
+          <input type="text" id="music-search-input" placeholder="Search songs..." autocomplete="off">
+          <button id="music-search-btn">Search</button>
+        </div>
+        <div id="music-now-playing" class="hidden">
+          <img id="music-album-img" src="" alt="Album" loading="lazy">
+          <div id="music-np-info">
+            <span id="music-np-title">—</span>
+            <div id="music-np-controls">
+              <button id="music-prev-btn" class="music-ctrl">⏮</button>
+              <button id="music-play-btn" class="music-ctrl music-ctrl-main">▶</button>
+              <button id="music-next-btn" class="music-ctrl">⏭</button>
+            </div>
+            <div id="music-progress-wrap">
+              <div id="music-progress">
+                <div id="music-progress-bar"></div>
+              </div>
+              <div id="music-time"><span id="music-cur-time">0:00</span><span id="music-dur-time">0:00</span></div>
+            </div>
+            <input type="range" id="music-volume" min="0" max="1" step="0.05" value="0.7">
+          </div>
+        </div>
+        <div id="music-results"></div>
+        <div id="music-loading" class="hidden">Searching...</div>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+    <!-- Terminal Window (Floating) -->
+    <div id="terminal-window-float" class="window floating-window hidden">
+      <div class="window-header">
+        <div class="window-dots"><span class="dot dot-red" data-action="close"></span><span class="dot dot-yellow"
+            data-action="minimize"></span><span class="dot dot-green" data-action="maximize"></span></div>
+        <span class="window-title">🖥️ Terminal</span>
+        <div class="window-actions"><button class="win-btn" data-action="minimize">─</button><button class="win-btn"
+            data-action="maximize">□</button><button class="win-btn close-float"
+            data-target="terminal-window-float">✕</button></div>
+      </div>
+      <div id="terminal-body-float" class="terminal-body-class">
+        <div id="terminal-output-float"></div>
+        <div id="terminal-input-line-float" class="terminal-input-line">
+          <span class="prompt">vijay@arch:~$</span>
+          <div id="input-wrapper-float" class="input-wrapper">
+            <input type="text" id="terminal-input-float" spellcheck="false" autocomplete="off">
+            <div id="cursor-block-float" class="cursor-block blink"></div>
+          </div>
+        </div>
+      </div>
+      <div class="window-resizer"></div>
+    </div>
+
+
+    <!-- Mobile Navigation Bar (Android Style) -->
+    <nav id="mobile-nav" class="hidden">
+      <button class="mobile-nav-btn" data-app="launcher" id="mobile-launcher-btn">
+        <div class="nav-icon-circle">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <circle cx="12" cy="12" r="10" opacity="0.2" />
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"
+              opacity="0" />
+            <circle cx="12" cy="12" r="5" />
+          </svg>
+        </div>
+      </button>
+      <button class="mobile-nav-btn" data-app="terminal">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path
+            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm-9 12H5v-2h6v2zm8-3h-6V7h6v6z"
+            opacity="0.3" />
+          <path d="M12 11l-4-4-1.41 1.41L9.17 11l-2.58 2.59L8 15l4-4z" />
+        </svg>
+      </button>
+      <button class="mobile-nav-btn" data-app="projects">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path d="M10 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2h-8l-2-2z" />
+        </svg>
+      </button>
+      <button class="mobile-nav-btn" data-app="quick-settings">
+        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+          <path
+            d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.61l-1.92-3.32c-.12-.22-.37-.29-.59-.22l-2.39.96c-.5-.38-1.03-.7-1.62-.94l-.36-2.54c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96c-.22-.08-.47 0-.59.22L2.74 8.87c-.12.21-.08.47.12.61l2.03 1.58c-.05.3-.09.63-.09.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.38 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.56 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32c.12-.22.07-.47-.12-.61l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+        </svg>
+      </button>
+    </nav>
+
+  </div><!-- /desktop -->
+
+  <!-- Audio (keyboard click) -->
+  <audio id="key-sound" preload="none">
+    <source src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA=" type="audio/wav">
+  </audio>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
